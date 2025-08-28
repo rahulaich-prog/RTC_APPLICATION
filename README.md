@@ -1,4 +1,8 @@
 # RTC_APPLICATION
+<img width="1919" height="1012" alt="Screenshot 2025-08-28 225517" src="https://github.com/user-attachments/assets/1e9f2932-dd10-4b95-9c90-a5db2715a2e2" />
+
+
+
 Real-Time Chat Application
 A modern, real-time chat application built with WebSocket technology, featuring a beautiful gradient UI and seamless communication between users.
 
