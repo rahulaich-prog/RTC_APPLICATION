@@ -45,7 +45,7 @@ wss.on("connection", (socket) => {
         }
     });
 
-    // Use "close" event, and filter by user.socket
+   
     socket.on("close", () => {
         allSocket = allSocket.filter(user => user.socket !== socket);
     });
