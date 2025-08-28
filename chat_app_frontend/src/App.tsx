@@ -3,15 +3,13 @@ import './App.css'
 
 function App() {
   const [messages, setMessages] = useState([
-    //{ text: "Welcome to the chat room! 👋", isOwn: false, timestamp: new Date() },
-    //{ text: "Start chatting with others!", isOwn: false, timestamp: new Date() }
   ]);
   const [isConnected, setIsConnected] = useState(false);
   const wsRef = useRef<WebSocket | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto scroll to bottom when new messages arrive
+  
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -61,7 +59,7 @@ function App() {
     const message = inputRef.current?.value?.trim();
     if (!message || !wsRef.current) return;
 
-    // Add own message to chat
+    
     const newMessage = {
       text: message,
       isOwn: true,
@@ -69,7 +67,7 @@ function App() {
     };
     setMessages(m => [...m, newMessage]);
 
-    // Send to server
+    
     wsRef.current.send(JSON.stringify({
       type: "chat",
       payload: {
@@ -77,7 +75,7 @@ function App() {
       }
     }));
 
-    // Clear input
+    
     if (inputRef.current) {
       inputRef.current.value = '';
     }
@@ -108,7 +106,7 @@ function App() {
         </div>
       </div>
 
-      {/* Messages Container */}
+     
       <div className='flex-1 overflow-y-auto p-4 space-y-4'>
         {messages.map((message, index) => (
           <div key={index} className={`flex ${message.isOwn ? 'justify-end' : 'justify-start'} animate-fadeIn`}>
@@ -129,7 +127,7 @@ function App() {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Input Area */}
+  
       <div className='bg-white/10 backdrop-blur-md border-t border-white/20 p-4'>
         <div className='flex space-x-3 max-w-4xl mx-auto'>
           <input
