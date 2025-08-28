@@ -10,7 +10,7 @@ interface User {
 let allSocket: User[] = [];
 
 wss.on("connection", (socket) => {
-    // Add user with empty room on connect
+    
     allSocket.push({ socket, room: "" });
 
     socket.on("message", (message) => {
